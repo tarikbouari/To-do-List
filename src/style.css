@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-} 
+}
 
 body {
   background-color: white;
@@ -36,4 +36,8 @@ h1 {
 
 .send {
   color: blue;
+}
+
+.add {
+  width: 80%;
 }
