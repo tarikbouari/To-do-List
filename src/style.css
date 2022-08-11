@@ -1,11 +1,11 @@
-/* * {
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-} */
+} 
 
 body {
- 
+  background-color: white;
 }
 
 .container1 {
@@ -15,7 +15,6 @@ body {
   height: 100vh;
   width: 70%;
   margin: 0 auto;
-  
 }
 
 .container2 {
@@ -30,6 +29,11 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+
 h1 {
   color: navy;
+}
+
+.send {
+  color: blue;
 }
