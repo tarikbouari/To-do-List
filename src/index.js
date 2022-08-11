@@ -1,56 +1,73 @@
-import "./style.css";
-import List from "./class.js";
-export const arr = [
+import './style.css';
+
+const arr = [
   {
-    description: " Submit list project one1",
+    description: ' Submit list project one1',
     completed: true,
-    index: "1",
+    index: '1',
   },
   {
-    description: " Setup webpack file ",
+    description: ' Setup webpack file ',
     completed: true,
-    index: "2",
+    index: '2',
   },
   {
-    description: "Get project approved ",
+    description: 'Get project approved ',
     completed: false,
-    index: "3",
+    index: '3',
   },
 ];
 
-const add = document.getElementById("send");
-const container = document.getElementById("task");
-const inputAdd = document.getElementById("add");
-const form = document.getElementById("form");
+const add = document.getElementById('send');
+const container = document.getElementById('task');
+const inputAdd = document.getElementById('add');
+const form = document.getElementById('form');
 
 const loader = () => {
   const load = arr
-    .map((item, i) => {
-      return ` <div class="flex">
+    .map(
+      (item, i) => ` <div class="flex">
                   <div class="py-3"> 
-                  <input type="checkbox" id="description">
+                  <input type="checkbox" id="description" data-id="${i}">
                   <label for="description" class="mx-3"> ${item.description}</label>
                   </div>
                   <span class="material-symbols-outlined">
                   more_vert
                   </span>
-                </div>`;
-    })
-    .join("");
+                </div>`,
+    )
+    .join('');
 
   container.innerHTML = load;
 };
 
 loader();
 
-add.addEventListener("click", (e) => {
-  e.preventDefault();
-  console.log(true);
-  let desValue = inputAdd.value;
-  if (!desValue) return "value missing";
+export default class List {
+  constructor(description, completed = false, i = 0) {
+    this.description = description;
+    this.completed = completed;
+    this.index = i;
+  }
 
-  let newList = new List(desValue);
+  addToList() {
+    const listArr = {
+      description: this.description,
+      completed: this.completed,
+      index: this.index,
+    };
+
+    arr.push(listArr);
+  }
+}
+
+add.addEventListener('click', (e) => {
+  e.preventDefault();
+  const desValue = inputAdd.value;
+  if (!desValue) return 'value missing';
+
+  const newList = new List(desValue);
   newList.addToList();
   loader();
-  form.reset();
+  return form.reset();
 });
