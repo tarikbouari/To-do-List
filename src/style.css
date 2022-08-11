@@ -1,3 +1,35 @@
+/* * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+} */
+
+body {
+ 
+}
+
+.container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 70%;
+  margin: 0 auto;
+  
+}
+
+.container2 {
+  margin: auto auto;
+  background-color: rgb(245, 239, 251);
+  width: 50%;
+  padding: 2rem;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 h1 {
   color: navy;
 }
