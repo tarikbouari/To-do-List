@@ -1,6 +1,6 @@
-let task = JSON.parse(localStorage.getItem("tasks")) || [];
+let task = JSON.parse(localStorage.getItem('tasks')) || [];
 
-export const state = (index) => {
+export default (index) => {
   task = task.map((item) => {
     if (item.index === index) {
       const currentState = item.completed;
@@ -12,6 +12,6 @@ export const state = (index) => {
     }
     return item;
   });
-  localStorage.setItem("tasks", JSON.stringify(task));
+  localStorage.setItem('tasks', JSON.stringify(task));
   document.location.reload();
 };
