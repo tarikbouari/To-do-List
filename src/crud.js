@@ -1,29 +1,67 @@
-import { add, container, inputAdd, form } from "./index.js";
-const getLocal = () => {
-  const task = JSON.parse(localStorage.getItem("tasks")) || [];
-};
-
-const loader = () => {
-  const task = JSON.parse(localStorage.getItem("tasks")) || [];
-  //   getLocal();
-  if (!task) return null;
-  else {
-    const load = task
-      .map(
-        (item, i) => ` <div class="flex">
-                      <div class="py-3"> 
-                      <input type="checkbox" id="description" data-id="${i}">
-                      <label for="description" class="mx-3"> ${item.description}</label>
-                      </div>
-                      <span class="material-symbols-outlined">
-                      more_vert
-                      </span>
-                    </div>`
-      )
-      .join("");
-
-    container.innerHTML = load;
+export default class List {
+  constructor(description, index) {
+    this.description = description;
+    this.completed = false;
+    this.index = index;
   }
+
+  addToList() {
+    const task = JSON.parse(localStorage.getItem("tasks")) || [];
+    const listArr = {
+      description: this.description,
+      completed: this.completed,
+      index: this.index,
+    };
+
+    task.push(listArr);
+    localStorage.setItem("tasks", JSON.stringify(task));
+  }
+}
+
+const remove = (index) => {
+  const task = JSON.parse(localStorage.getItem("tasks")) || [];
+  const newTasks = task.filter((item) => item.index !== index);
+  newTasks.map((item, index) => {
+    item.index = index + 1;
+    return item;
+  });
+  localStorage.setItem("tasks", JSON.stringify(newTasks));
+  document.location.reload();
 };
 
-export { getLocal, loader };
+const updateTask = (index, newInput) => {
+  const task = JSON.parse(localStorage.getItem("tasks")) || [];
+  const newTasks = task.filter((item) => item.index !== index);
+
+  const newTask = new List(newInput.value, index);
+  newTasks.splice(index - 1, 0, { ...newTask });
+  localStorage.setItem("tasks", JSON.stringify(newTasks));
+  document.location.reload();
+};
+
+const editTask = (index) => {
+  const task = JSON.parse(localStorage.getItem("tasks")) || [];
+  const taskArr = task[index - 1];
+  const element = document.getElementById(index);
+  element.style.backgroundColor = "rgb(45, 45, 239)";
+  element.innerHTML = "";
+  const newInput = document.createElement("input");
+  newInput.classList.add("newInput");
+  newInput.value = taskArr.description;
+
+  newInput.addEventListener("focusout", () => {
+    updateTask(index, newInput);
+  });
+
+  const removIcon = document.createElement("span");
+  removIcon.classList.add("material-symbols-outlined");
+  removIcon.textContent = "delete";
+  removIcon.addEventListener("click", () => {
+    remove(index);
+    document.location.reload();
+  });
+
+  element.append(newInput, removIcon);
+};
+
+export { updateTask, remove, editTask };
