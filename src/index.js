@@ -1,40 +1,59 @@
-import "./style.css";
-import { getLocal, loader } from "./crud.js";
-export const add = document.getElementById("send");
-export const container = document.getElementById("task");
-export const inputAdd = document.getElementById("add");
-export const form = document.getElementById("form");
+import './style.css';
+import List, { editTask } from './crud.js';
 
-export default class List {
-  constructor(description, index) {
-    this.description = description;
-    this.completed = false;
-    this.index = index;
-  }
+export const add = document.getElementById('send');
+export const inputAdd = document.getElementById('add');
+export const form = document.getElementById('form');
 
-  addToList() {
-    const task = JSON.parse(localStorage.getItem("tasks")) || [];
-    const listArr = {
-      description: this.description,
-      completed: this.completed,
-      index: this.index,
-    };
+const loader = () => {
+  const container = document.getElementById('task');
+  const task = JSON.parse(localStorage.getItem('tasks')) || [];
+  if (!task) return null;
+  task.forEach((item) => {
+    const div = document.createElement('div');
+    const checkBox = document.createElement('input');
+    const p = document.createElement('p');
+    const icon = document.createElement('span');
+    const label = document.createElement('label');
 
-    task.push(listArr);
-    localStorage.setItem("tasks", JSON.stringify(task));
-  }
-}
+    div.setAttribute('id', item.index);
+    div.classList.add('element', 'flex');
+    checkBox.type = 'checkbox';
+    checkBox.id = 'check';
+    checkBox.name = 'check';
+    checkBox.checked = false;
 
-document.addEventListener("DOMContentLoaded", loader());
+    p.classList.add('paragraph', 'py-3');
+    label.for = 'check';
+    label.classList.add('mx-3');
+    label.innerHTML = item.description;
 
-add.addEventListener("click", (e) => {
-  const task = JSON.parse(localStorage.getItem("tasks")) || [];
+    icon.classList.add('material-symbols-outlined');
+    icon.textContent = 'more_vert';
+    icon.addEventListener('click', () => {
+      editTask(item.index);
+    });
+
+    p.append(checkBox, label);
+    div.append(p, icon);
+    div.classList.add('task');
+
+    container.appendChild(div);
+  });
+  return container;
+};
+
+document.addEventListener('DOMContentLoaded', loader());
+
+add.addEventListener('click', (e) => {
+  const task = JSON.parse(localStorage.getItem('tasks')) || [];
   e.preventDefault();
   const desValue = inputAdd.value;
-  if (!desValue) return "value missing";
+  if (!desValue) return 'value missing';
   const taskIndex = task.length + 1;
   const newList = new List(desValue, taskIndex);
   newList.addToList();
   loader();
+  document.location.reload();
   return form.reset();
 });
