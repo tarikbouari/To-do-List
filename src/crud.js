@@ -6,7 +6,7 @@ export default class List {
   }
 
   addToList() {
-    const task = JSON.parse(localStorage.getItem('tasks')) || [];
+    const task = JSON.parse(localStorage.getItem("tasks")) || [];
     const listArr = {
       description: this.description,
       completed: this.completed,
@@ -14,49 +14,60 @@ export default class List {
     };
 
     task.push(listArr);
-    localStorage.setItem('tasks', JSON.stringify(task));
+    localStorage.setItem("tasks", JSON.stringify(task));
   }
 }
 
 const remove = (index) => {
-  const task = JSON.parse(localStorage.getItem('tasks')) || [];
+  const task = JSON.parse(localStorage.getItem("tasks")) || [];
   const newTasks = task.filter((item) => item.index !== index);
   newTasks.map((item, index) => {
     item.index = index + 1;
     return item;
   });
-  localStorage.setItem('tasks', JSON.stringify(newTasks));
+  localStorage.setItem("tasks", JSON.stringify(newTasks));
   document.location.reload();
 };
 
 const updateTask = (index, newInput) => {
-  const task = JSON.parse(localStorage.getItem('tasks')) || [];
+  const task = JSON.parse(localStorage.getItem("tasks")) || [];
   const newTasks = task.filter((item) => item.index !== index);
 
   const newTask = new List(newInput.value, index);
   newTasks.splice(index - 1, 0, { ...newTask });
-  localStorage.setItem('tasks', JSON.stringify(newTasks));
+  localStorage.setItem("tasks", JSON.stringify(newTasks));
+  document.location.reload();
+};
+
+const cleanAll = () => {
+  let task = JSON.parse(localStorage.getItem("tasks")) || [];
+  let taskArr = task.filter((item) => item.completed !== true);
+  taskArr = taskArr.map((item, index) => {
+    item.index = index + 1;
+    return item;
+  });
+  localStorage.setItem("tasks", JSON.stringify(taskArr));
   document.location.reload();
 };
 
 const editTask = (index) => {
-  const task = JSON.parse(localStorage.getItem('tasks')) || [];
+  const task = JSON.parse(localStorage.getItem("tasks")) || [];
   const taskArr = task[index - 1];
   const element = document.getElementById(index);
-  element.style.backgroundColor = 'rgb(45, 45, 239)';
-  element.innerHTML = '';
-  const newInput = document.createElement('input');
-  newInput.classList.add('newInput');
+  element.style.backgroundColor = "rgb(45, 45, 239)";
+  element.innerHTML = "";
+  const newInput = document.createElement("input");
+  newInput.classList.add("newInput");
   newInput.value = taskArr.description;
 
-  newInput.addEventListener('focusout', () => {
+  newInput.addEventListener("focusout", () => {
     updateTask(index, newInput);
   });
 
-  const removIcon = document.createElement('span');
-  removIcon.classList.add('material-symbols-outlined');
-  removIcon.textContent = 'delete';
-  removIcon.addEventListener('click', () => {
+  const removIcon = document.createElement("span");
+  removIcon.classList.add("material-symbols-outlined");
+  removIcon.textContent = "delete";
+  removIcon.addEventListener("click", () => {
     remove(index);
     document.location.reload();
   });
@@ -64,4 +75,4 @@ const editTask = (index) => {
   element.append(newInput, removIcon);
 };
 
-export { updateTask, remove, editTask };
+export { updateTask, remove, editTask, cleanAll };
