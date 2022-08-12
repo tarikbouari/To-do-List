@@ -12,9 +12,6 @@
 - Package Manager: Node, NPM
 -Following github flows standards.
 
-## Live demo 
-[click here](https://tarikbouari.github.io/Awesome-books/)
-
 ## Authors
 
 👤 **Tarik Bouari **
