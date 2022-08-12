@@ -1,70 +1,36 @@
-import './style.css';
-
-const arr = [
-  {
-    description: ' Submit list project one1',
-    completed: true,
-    index: '1',
-  },
-  {
-    description: ' Setup webpack file ',
-    completed: true,
-    index: '2',
-  },
-  {
-    description: 'Get project approved ',
-    completed: false,
-    index: '3',
-  },
-];
-
-const add = document.getElementById('send');
-const container = document.getElementById('task');
-const inputAdd = document.getElementById('add');
-const form = document.getElementById('form');
-
-const loader = () => {
-  const load = arr
-    .map(
-      (item, i) => ` <div class="flex">
-                  <div class="py-3"> 
-                  <input type="checkbox" id="description" data-id="${i}">
-                  <label for="description" class="mx-3"> ${item.description}</label>
-                  </div>
-                  <span class="material-symbols-outlined">
-                  more_vert
-                  </span>
-                </div>`,
-    )
-    .join('');
-
-  container.innerHTML = load;
-};
-
-loader();
+import "./style.css";
+import { getLocal, loader } from "./action.js";
+export const add = document.getElementById("send");
+export const container = document.getElementById("task");
+export const inputAdd = document.getElementById("add");
+export const form = document.getElementById("form");
 
 export default class List {
-  constructor(description, completed = false, i = 0) {
+  constructor(description, completed = false, index) {
     this.description = description;
     this.completed = completed;
-    this.index = i;
+    this.index = index;
   }
 
   addToList() {
+    const task = JSON.parse(localStorage.getItem("tasks")) || [];
     const listArr = {
       description: this.description,
       completed: this.completed,
       index: this.index,
     };
 
-    arr.push(listArr);
+    task.push(listArr);
+    localStorage.setItem("tasks", JSON.stringify(task));
   }
 }
 
-add.addEventListener('click', (e) => {
+document.addEventListener("DOMContentLoaded", loader());
+
+add.addEventListener("click", (e) => {
   e.preventDefault();
   const desValue = inputAdd.value;
-  if (!desValue) return 'value missing';
+  if (!desValue) return "value missing";
 
   const newList = new List(desValue);
   newList.addToList();
