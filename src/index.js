@@ -1,73 +1,59 @@
 import './style.css';
+import List, { editTask } from './crud.js';
 
-const arr = [
-  {
-    description: ' Submit list project one1',
-    completed: true,
-    index: '1',
-  },
-  {
-    description: ' Setup webpack file ',
-    completed: true,
-    index: '2',
-  },
-  {
-    description: 'Get project approved ',
-    completed: false,
-    index: '3',
-  },
-];
-
-const add = document.getElementById('send');
-const container = document.getElementById('task');
-const inputAdd = document.getElementById('add');
-const form = document.getElementById('form');
+export const add = document.getElementById('send');
+export const inputAdd = document.getElementById('add');
+export const form = document.getElementById('form');
 
 const loader = () => {
-  const load = arr
-    .map(
-      (item, i) => ` <div class="flex">
-                  <div class="py-3"> 
-                  <input type="checkbox" id="description" data-id="${i}">
-                  <label for="description" class="mx-3"> ${item.description}</label>
-                  </div>
-                  <span class="material-symbols-outlined">
-                  more_vert
-                  </span>
-                </div>`,
-    )
-    .join('');
+  const container = document.getElementById('task');
+  const task = JSON.parse(localStorage.getItem('tasks')) || [];
+  if (!task) return null;
+  task.forEach((item) => {
+    const div = document.createElement('div');
+    const checkBox = document.createElement('input');
+    const p = document.createElement('p');
+    const icon = document.createElement('span');
+    const label = document.createElement('label');
 
-  container.innerHTML = load;
+    div.setAttribute('id', item.index);
+    div.classList.add('element', 'flex');
+    checkBox.type = 'checkbox';
+    checkBox.id = 'check';
+    checkBox.name = 'check';
+    checkBox.checked = false;
+
+    p.classList.add('paragraph', 'py-3');
+    label.for = 'check';
+    label.classList.add('mx-3');
+    label.innerHTML = item.description;
+
+    icon.classList.add('material-symbols-outlined');
+    icon.textContent = 'more_vert';
+    icon.addEventListener('click', () => {
+      editTask(item.index);
+    });
+
+    p.append(checkBox, label);
+    div.append(p, icon);
+    div.classList.add('task');
+
+    container.appendChild(div);
+  });
+  return container;
 };
 
-loader();
-
-export default class List {
-  constructor(description, completed = false, i = 0) {
-    this.description = description;
-    this.completed = completed;
-    this.index = i;
-  }
-
-  addToList() {
-    const listArr = {
-      description: this.description,
-      completed: this.completed,
-      index: this.index,
-    };
-
-    arr.push(listArr);
-  }
-}
+document.addEventListener('DOMContentLoaded', loader());
 
 add.addEventListener('click', (e) => {
+  const task = JSON.parse(localStorage.getItem('tasks')) || [];
   e.preventDefault();
   const desValue = inputAdd.value;
   if (!desValue) return 'value missing';
-
-  const newList = new List(desValue);
+  const taskIndex = task.length + 1;
+  const newList = new List(desValue, taskIndex);
   newList.addToList();
   loader();
+  document.location.reload();
   return form.reset();
 });
