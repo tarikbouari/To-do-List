@@ -39,6 +39,17 @@ const updateTask = (index, newInput) => {
   document.location.reload();
 };
 
+const cleanAll = () => {
+  const task = JSON.parse(localStorage.getItem('tasks')) || [];
+  let taskArr = task.filter((item) => item.completed !== true);
+  taskArr = taskArr.map((item, index) => {
+    item.index = index + 1;
+    return item;
+  });
+  localStorage.setItem('tasks', JSON.stringify(taskArr));
+  document.location.reload();
+};
+
 const editTask = (index) => {
   const task = JSON.parse(localStorage.getItem('tasks')) || [];
   const taskArr = task[index - 1];
@@ -64,4 +75,6 @@ const editTask = (index) => {
   element.append(newInput, removIcon);
 };
 
-export { updateTask, remove, editTask };
+export {
+  updateTask, remove, editTask, cleanAll,
+};
