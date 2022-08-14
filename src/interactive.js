@@ -1,4 +1,4 @@
-let task = JSON.parse(localStorage.getItem('tasks')) || [];
+let task = JSON.parse(localStorage.getItem("tasks")) || [];
 
 export default (index) => {
   task = task.map((item) => {
@@ -12,6 +12,6 @@ export default (index) => {
     }
     return item;
   });
-  localStorage.setItem('tasks', JSON.stringify(task));
+  localStorage.setItem("tasks", JSON.stringify(task));
   document.location.reload();
 };

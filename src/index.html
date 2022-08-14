@@ -16,36 +16,47 @@
     </head>
     <body>
         <section class="container1">
+            <section class="contain">
+                <header class="flex">
+                    <div>
+                        <h2>Today's To Do</h2>
+                        <p> Plan your activities and control your progress</p>
+                    </div>
 
-            <section class="container2">
-                <header class="flex my-3">
-                    <h2>Today's To Do</h2>
                     <span class="material-symbols-outlined">
                         autorenew
                     </span>
                 </header>
+                <div class="flex head">
+                    <input type="text" placeholder="add to your list"
+                        class="add inputText" id="add">
+                    <span class="material-symbols-outlined send "
+                        id="send">
+                        send
+                    </span>
+
+                </div>
+            </section>
+
+            <section class="container2">
+
                 <div class="list" id="list">
                     <form id="form">
-                        <div class="flex head">
-                            <input type="text" placeholder="add to your list"
-                                class="add" id="add">
-                            <span class="material-symbols-outlined send"
-                                id="send">
-                                send
-                            </span>
 
-                        </div>
                         <div class="container-task py-3 " id="task">
 
                         </div>
-                        <button type="submit" class=" btn btn-primary w-100"
-                            id="clean">
-                            Clear
-                            all completed</button>
+
 
                     </form>
 
                 </div>
+            </section>
+            <section class="container3">
+                <button type="submit" class=" btn btn-primary w-20"
+                    id="clean">
+                    Clear
+                    all completed</button>
             </section>
         </section>
     </body>
