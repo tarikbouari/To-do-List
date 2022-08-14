@@ -19,7 +19,7 @@ const loader = () => {
     const label = document.createElement("label");
 
     div.setAttribute("id", item.index);
-    div.classList.add("element", "flex", "py-3");
+    div.classList.add("element", "flex", "py-2");
     checkBox.type = "checkbox";
     checkBox.id = "check";
     checkBox.name = "check";

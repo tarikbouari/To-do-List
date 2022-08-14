@@ -37,6 +37,7 @@ body {
 
 .element {
   padding: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.302);
 }
 
 header,
@@ -83,4 +84,12 @@ span {
 
 .inputText:focus {
   outline: 2px solid rgb(185, 183, 182);
+}
+
+.newInput {
+  width: 80%;
+}
+
+.newInput[type="text"] {
+  padding: 0 0.5rem;
 }
