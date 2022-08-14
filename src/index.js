@@ -19,7 +19,7 @@ const loader = () => {
     const label = document.createElement('label');
 
     div.setAttribute('id', item.index);
-    div.classList.add('element', 'flex');
+    div.classList.add('element', 'flex', 'py-2');
     checkBox.type = 'checkbox';
     checkBox.id = 'check';
     checkBox.name = 'check';
@@ -28,7 +28,7 @@ const loader = () => {
       state(item.index);
     });
 
-    p.classList.add('paragraph', 'py-3');
+    p.classList.add('paragraph', 'mx-3');
     label.for = 'check';
     label.classList.add('mx-3');
     label.innerHTML = item.description;

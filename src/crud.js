@@ -54,10 +54,11 @@ const editTask = (index) => {
   const task = JSON.parse(localStorage.getItem('tasks')) || [];
   const taskArr = task[index - 1];
   const element = document.getElementById(index);
-  element.style.backgroundColor = 'rgb(45, 45, 239)';
+  element.style.backgroundColor = 'rgba(0, 0, 255, 0.1)';
   element.innerHTML = '';
   const newInput = document.createElement('input');
   newInput.classList.add('newInput');
+  newInput.type = 'text';
   newInput.value = taskArr.description;
 
   newInput.addEventListener('focusout', () => {
