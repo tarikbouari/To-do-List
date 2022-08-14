@@ -15,9 +15,13 @@
 
 ## Setup
 > -to use the project To do list please follow :
->-Open GitHub and go to my GitHub repository name: to do list.to clone. Click “Code” and copy the given URL.
+
+>Open GitHub and go to my GitHub repository name: to do list.to clone. Click “Code” and copy the given URL.
+
 >click code and copy the URL.
+
 >Open “Git Bash” and change the current working directory to the location where you want the cloned directory.
+
 >Type git clone in the terminal, paste the URL you copied earlier, and press “enter” to create your local clone.
 
 ## Syntax:
