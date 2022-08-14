@@ -12,6 +12,26 @@
 - Package Manager: Node, NPM
 -Following github flows standards.
 
+
+## Setup
+> -to use the project To do list please follow :
+>-Open GitHub and go to my GitHub repository name: to do list.to clone. Click “Code” and copy the given URL.
+>click code and copy the URL.
+>Open “Git Bash” and change the current working directory to the location where you want the cloned directory.
+>Type git clone in the terminal, paste the URL you copied earlier, and press “enter” to create your local clone.
+
+## Syntax:
+
+>$ git clone {repository URL}
+
+## Usage
+>open your directory To-do-List/
+
+>use vs-code or any IDE to view line code .
+
+## use you preferd browser to run the file .html to get project website. to run in terminal / git :
+$ npm start
+
 ## Live demo 
 [click here](https://tarikbouari.github.io/Awesome-books/)
 
