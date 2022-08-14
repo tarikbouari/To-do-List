@@ -3,8 +3,11 @@
 # To-do List
 
 ## Description 
+
 > This project has been assigned to me by microverse.
-> To-do-list is an oline website where user can plan and manage time by adding a list of task. tasks can be removed , added, and edited.
+> To-do-list is an oline website where users can plan and manage time by adding a list of task. tasks can be removed , added, and edited.
+
+
 
 ## Built With
 - Languages: HTML5, CSS5, JavaScript
@@ -12,6 +15,7 @@
 - Package Manager: Node, NPM
 - Webpack
 -Following github flows standards.
+
 
 
 ## Setup
