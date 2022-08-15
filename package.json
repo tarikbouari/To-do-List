@@ -4,10 +4,12 @@
   "description": "",
   "scripts": {
     "build": "webpack --mode development",
-    "start": "webpack serve --open"
+    "start": "webpack serve --open",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
+  "homepage": "https://tarikbouari.github.io/To-do-List",
   "license": "ISC",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -28,6 +30,6 @@
   },
   "dependencies": {
     "core-js": "^3.24.1",
-    "lodash": "^4.17.21"
+    "gh-pages": "^4.0.0"
   }
 }
