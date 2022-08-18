@@ -1,3 +1,5 @@
+// import { loader } from './index.js';
+
 export default class List {
   constructor(description, index) {
     this.description = description;
@@ -12,21 +14,25 @@ export default class List {
       completed: this.completed,
       index: this.index,
     };
-
+    container.innerHTML = ' ';
     task.push(listArr);
     localStorage.setItem('tasks', JSON.stringify(task));
   }
 }
 
+const container = document.getElementById('task');
 const remove = (index) => {
+  // container.innerHTML = " ";
   const task = JSON.parse(localStorage.getItem('tasks')) || [];
   const newTasks = task.filter((item) => item.index !== index);
+
   newTasks.map((item, index) => {
     item.index = index + 1;
     return item;
   });
+
   localStorage.setItem('tasks', JSON.stringify(newTasks));
-  document.location.reload();
+  loader();
 };
 
 const updateTask = (index, newInput) => {
@@ -48,6 +54,7 @@ const cleanAll = () => {
   });
   localStorage.setItem('tasks', JSON.stringify(taskArr));
   document.location.reload();
+  // loader();
 };
 
 const editTask = (index) => {
@@ -66,8 +73,9 @@ const editTask = (index) => {
   });
 
   const removIcon = document.createElement('span');
-  removIcon.classList.add('material-symbols-outlined');
+  removIcon.classList.add('material-symbols-outlined', 'btn');
   removIcon.textContent = 'delete';
+
   removIcon.addEventListener('click', () => {
     remove(index);
     document.location.reload();

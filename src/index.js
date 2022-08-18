@@ -6,10 +6,12 @@ export const add = document.getElementById('send');
 export const inputAdd = document.getElementById('add');
 export const form = document.getElementById('form');
 const cleanBtn = document.getElementById('clean');
+export const container = document.getElementById('task');
 
-const task = JSON.parse(localStorage.getItem('tasks')) || [];
+// const task = JSON.parse(localStorage.getItem("tasks")) || [];
 const loader = () => {
-  const container = document.getElementById('task');
+  container.innerHTML = '';
+  const task = JSON.parse(localStorage.getItem('tasks')) || [];
   if (!task) return null;
   task.forEach((item) => {
     const div = document.createElement('div');
@@ -23,7 +25,6 @@ const loader = () => {
     checkBox.type = 'checkbox';
     checkBox.id = 'check';
     checkBox.name = 'check';
-    // checkBox.checked = false;
     checkBox.addEventListener('change', () => {
       state(item.index);
     });
@@ -53,7 +54,8 @@ const loader = () => {
   return container;
 };
 
-document.addEventListener('DOMContentLoaded', loader());
+loader();
+// document.addEventListener("DOMContentLoaded", loader());
 cleanBtn.addEventListener('click', (e) => {
   e.preventDefault();
   cleanAll();
@@ -67,7 +69,10 @@ add.addEventListener('click', (e) => {
   const taskIndex = task.length + 1;
   const newList = new List(desValue, taskIndex);
   newList.addToList();
-  loader();
+  // loader();
+  // desValue = " ";
   document.location.reload();
-  return form.reset();
+  // form.reset();
 });
+
+export { loader };
