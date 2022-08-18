@@ -1,5 +1,3 @@
-// import { loader } from './index.js';
-
 export default class List {
   constructor(description, index) {
     this.description = description;
@@ -14,15 +12,12 @@ export default class List {
       completed: this.completed,
       index: this.index,
     };
-    container.innerHTML = ' ';
     task.push(listArr);
     localStorage.setItem('tasks', JSON.stringify(task));
   }
 }
 
-const container = document.getElementById('task');
 const remove = (index) => {
-  // container.innerHTML = " ";
   const task = JSON.parse(localStorage.getItem('tasks')) || [];
   const newTasks = task.filter((item) => item.index !== index);
 
@@ -32,7 +27,7 @@ const remove = (index) => {
   });
 
   localStorage.setItem('tasks', JSON.stringify(newTasks));
-  loader();
+  window.location.reload();
 };
 
 const updateTask = (index, newInput) => {
@@ -54,7 +49,6 @@ const cleanAll = () => {
   });
   localStorage.setItem('tasks', JSON.stringify(taskArr));
   document.location.reload();
-  // loader();
 };
 
 const editTask = (index) => {

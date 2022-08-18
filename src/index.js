@@ -8,7 +8,6 @@ export const form = document.getElementById('form');
 const cleanBtn = document.getElementById('clean');
 export const container = document.getElementById('task');
 
-// const task = JSON.parse(localStorage.getItem("tasks")) || [];
 const loader = () => {
   container.innerHTML = '';
   const task = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -55,7 +54,6 @@ const loader = () => {
 };
 
 loader();
-// document.addEventListener("DOMContentLoaded", loader());
 cleanBtn.addEventListener('click', (e) => {
   e.preventDefault();
   cleanAll();
@@ -69,10 +67,8 @@ add.addEventListener('click', (e) => {
   const taskIndex = task.length + 1;
   const newList = new List(desValue, taskIndex);
   newList.addToList();
-  // loader();
-  // desValue = " ";
   document.location.reload();
-  // form.reset();
+  return e;
 });
 
 export { loader };
