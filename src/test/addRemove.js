@@ -11,3 +11,8 @@ const add = (array, element) => {
 
   return array;
 };
+
+const remove = (array, index) => {
+  array.splice(index, 1);
+  return array;
+}
