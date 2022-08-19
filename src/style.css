@@ -1,99 +1,99 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: white;
-    font-size: 1.1rem;
+  background-color: white;
+  font-size: 1.1rem;
 }
 
 .linter {
-    display: none;
+  display: none;
 }
 
 .container1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 70%;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 70%;
+  margin: 0 auto;
 }
 
 .container2 {
-    /* margin-top: 2rem; */
-    background-color: rgb(245, 239, 251);
-    width: 80%;
-    padding: 0 0.5rem;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.307);
-    height: 40%;
-    overflow-y: auto;
+  /* margin-top: 2rem; */
+  background-color: rgb(245, 239, 251);
+  width: 80%;
+  padding: 0 0.5rem;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.307);
+  height: 40%;
+  overflow-y: auto;
 }
 
 .contain {
-    background-color: rgba(0, 0, 255, 0.236);
-    width: 80%;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.307);
+  background-color: rgba(0, 0, 255, 0.236);
+  width: 80%;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.307);
 }
 
 .element {
-    padding: 0.5rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.302);
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.302);
 }
 
 header,
 .head {
-    display: flex;
-    width: 100%;
-    padding: 0.5rem 1rem;
+  display: flex;
+  width: 100%;
+  padding: 0.5rem 1rem;
 }
 
 .container3 {
-    background-color: rgb(245, 239, 251);
-    width: 80%;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.307);
-    padding: 1rem;
+  background-color: rgb(245, 239, 251);
+  width: 80%;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.307);
+  padding: 1rem;
 }
 
 .flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 h2 {
-    color: navy;
-    text-transform: capitalize;
+  color: navy;
+  text-transform: capitalize;
 }
 
 .send {
-    color: rgb(45, 45, 239);
+  color: rgb(45, 45, 239);
 }
 
 span {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .inputText[type="text"] {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .inputText {
-    width: 60%;
-    height: 3rem;
+  width: 60%;
+  height: 3rem;
 }
 
 .inputText:focus {
-    outline: 2px solid rgb(185, 183, 182);
+  outline: 2px solid rgb(185, 183, 182);
 }
 
 .newInput {
-    width: 80%;
+  width: 80%;
 }
 
 .newInput[type="text"] {
-    padding: 0 0.5rem;
+  padding: 0 0.5rem;
 }
