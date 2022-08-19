@@ -12,7 +12,6 @@ export default class List {
       completed: this.completed,
       index: this.index,
     };
-
     task.push(listArr);
     localStorage.setItem('tasks', JSON.stringify(task));
   }
@@ -21,12 +20,14 @@ export default class List {
 const remove = (index) => {
   const task = JSON.parse(localStorage.getItem('tasks')) || [];
   const newTasks = task.filter((item) => item.index !== index);
+
   newTasks.map((item, index) => {
     item.index = index + 1;
     return item;
   });
+
   localStorage.setItem('tasks', JSON.stringify(newTasks));
-  document.location.reload();
+  window.location.reload();
 };
 
 const updateTask = (index, newInput) => {
@@ -66,8 +67,9 @@ const editTask = (index) => {
   });
 
   const removIcon = document.createElement('span');
-  removIcon.classList.add('material-symbols-outlined');
+  removIcon.classList.add('material-symbols-outlined', 'btn');
   removIcon.textContent = 'delete';
+
   removIcon.addEventListener('click', () => {
     remove(index);
     document.location.reload();
