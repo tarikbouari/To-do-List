@@ -16,10 +16,10 @@ const remove = (array, index) => {
   return array;
 };
 
-const update = (index, array) =>{
+const update = ( array,index) =>{
 
 const obj = {
-  description: element,
+  description: index,
     completed: false,
     index: array.length,
   };
@@ -28,4 +28,17 @@ const obj = {
   return array
 
 }
-export { add, remove, update };
+
+const clean = (index, array) => {
+  const obj = {
+    description: element,
+      completed: false,
+      index: array.length,
+    };
+    
+    array.push(obj);
+    array.filter( (item) => item.completed === false);
+    return array
+}
+
+module.exports = { add, remove, update, clean };
