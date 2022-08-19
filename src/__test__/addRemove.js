@@ -1,5 +1,5 @@
 const add = (array, element) => {
-  if (element === "") return "invalid input";
+  if (element === '') return 'invalid input';
 
   const obj = {
     description: element,
@@ -27,7 +27,7 @@ const edit = (array, index) => {
   return array;
 };
 
-const clean = (array,element) => {
+const clean = (array, element) => {
   const obj = {
     description: element,
     completed: true,
@@ -39,4 +39,17 @@ const clean = (array,element) => {
   return array;
 };
 
-module.exports = { add, remove, edit, clean };
+const update = (array, element) => {
+  const obj = {
+    description: element,
+    completed: false,
+    index: array.length,
+  };
+  const complete = obj.completed === false ? obj.completed = true : false;
+  array.push(obj);
+  return complete === true || false;
+};
+
+module.exports = {
+  add, remove, edit, clean, update,
+};
