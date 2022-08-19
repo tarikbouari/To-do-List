@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1660864077210" clover="3.2.0">
-  <project timestamp="1660864077210" name="All files">
-    <metrics statements="18" coveredstatements="14" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="3" elements="25" coveredelements="18" complexity="0" loc="18" ncloc="18" packages="1" files="1" classes="1"/>
+<coverage generated="1660900230104" clover="3.2.0">
+  <project timestamp="1660900230105" name="All files">
+    <metrics statements="18" coveredstatements="18" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="5" elements="25" coveredelements="24" complexity="0" loc="18" ncloc="18" packages="1" files="1" classes="1"/>
     <file name="addRemove.js" path="E:\Microverse 2022\FULL PROGRAM C12\Module2\To-do-List\src\__test__\addRemove.js">
-      <metrics statements="18" coveredstatements="14" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="3"/>
+      <metrics statements="18" coveredstatements="18" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="5"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="2" type="cond" truecount="1" falsecount="1"/>
       <line num="4" count="2" type="stmt"/>
@@ -13,15 +13,15 @@
       <line num="15" count="1" type="stmt"/>
       <line num="16" count="1" type="stmt"/>
       <line num="19" count="1" type="stmt"/>
-      <line num="21" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
       <line num="27" count="1" type="stmt"/>
-      <line num="28" count="1" type="stmt"/>
-      <line num="32" count="1" type="stmt"/>
-      <line num="33" count="0" type="stmt"/>
-      <line num="39" count="0" type="stmt"/>
-      <line num="40" count="0" type="stmt"/>
-      <line num="41" count="0" type="stmt"/>
-      <line num="44" count="1" type="stmt"/>
+      <line num="30" count="1" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="37" count="1" type="stmt"/>
+      <line num="38" count="3" type="stmt"/>
+      <line num="39" count="1" type="stmt"/>
+      <line num="42" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
