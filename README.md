@@ -4,8 +4,9 @@
 
 ## Description 
 
+
+> To-do-list is an online website where users can add a todo tasks. tasks can be removed , added, and edited.Build with Webpack and JavaScript. 
 > This project has been assigned to me by microverse.
-> To-do-list is an oline website where users can plan and manage time by adding a list of task. tasks can be removed , added, and edited.
 
 
 
